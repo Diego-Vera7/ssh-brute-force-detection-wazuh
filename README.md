@@ -121,11 +121,34 @@ Reporte exportado directamente desde el dashboard de Wazuh con el resumen de ale
 
 ## Herramientas usadas
 
-![VirtualBox](https://img.shields.io/badge/VirtualBox-000000?style=for-the-badge&logo=virtualbox&logoColor=white)
-![Ubuntu](https://img.shields.io/badge/Ubuntu-000000?style=for-the-badge&logo=ubuntu&logoColor=white)
-![Kali Linux](https://img.shields.io/badge/Kali%20Linux-000000?style=for-the-badge&logo=kalilinux&logoColor=white)
-![Wazuh](https://img.shields.io/badge/Wazuh%204.14-000000?style=for-the-badge&logo=wazuh&logoColor=white)
-![Hydra](https://img.shields.io/badge/Hydra-000000?style=for-the-badge&logo=hydra&logoColor=white)
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="140">
+<img src="https://cdn.simpleicons.org/virtualbox" width="56" height="56"><br>
+<sub><b>VirtualBox</b></sub>
+</td>
+<td align="center" width="140">
+<img src="https://cdn.simpleicons.org/ubuntu" width="56" height="56"><br>
+<sub><b>Ubuntu</b></sub>
+</td>
+<td align="center" width="140">
+<img src="https://cdn.simpleicons.org/kalilinux" width="56" height="56"><br>
+<sub><b>Kali Linux</b></sub>
+</td>
+<td align="center" width="140">
+<img src="https://cdn.simpleicons.org/wazuh" width="56" height="56"><br>
+<sub><b>Wazuh 4.14</b></sub>
+</td>
+<td align="center" width="140">
+<img src="https://cdn.simpleicons.org/hydra" width="56" height="56"><br>
+<sub><b>Hydra</b></sub>
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
