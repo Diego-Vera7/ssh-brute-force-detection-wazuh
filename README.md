@@ -18,15 +18,21 @@ Laboratorio casero de detección y respuesta a incidentes, construido con **Wazu
 
 Basado en la guía *"Wazuh para principiantes"* de Fatima Pérez, con reglas y configuración propias añadidas sobre la base de la guía.
 
+<div align="center">
+
+**[Arquitectura](#arquitectura)** · **[Qué incluye este repo](#qué-incluye-este-repo)** · **[Instalación](#1-instalación)** · **[Reglas personalizadas](#2-reglas-personalizadas)** · **[Simulación de ataque](#3-simulación-de-ataque-fuerza-bruta-ssh)** · **[Respuesta activa](#4-respuesta-activa-bloqueo-automático-de-ip)** · **[Reporte PDF](#reporte-wazuh-pdf)** · **[Herramientas](#herramientas-usadas)**
+
+</div>
+
 ---
 
 ## Arquitectura
 
-| Máquina | Rol | IP (red NAT 192.168.100.0/24) |
-|---|---|---|
-| Ubuntu Server | Servidor Wazuh (manager + indexer + dashboard, all-in-one) | 192.168.100.4 |
-| Ubuntu Desktop | Víctima (con agente de Wazuh instalado) | 192.168.100.5 |
-| Kali Linux | Atacante | 192.168.100.6 |
+| | Máquina | Rol | IP (red NAT 192.168.100.0/24) |
+|---|---|---|---|
+| <img src="https://cdn.simpleicons.org/ubuntu" width="28" height="28"> | Ubuntu Server | Servidor Wazuh (manager + indexer + dashboard, all-in-one) | 192.168.100.4 |
+| <img src="https://cdn.simpleicons.org/ubuntu" width="28" height="28"> | Ubuntu Desktop | Víctima (con agente de Wazuh instalado) | 192.168.100.5 |
+| <img src="https://cdn.simpleicons.org/kalilinux" width="28" height="28"> | Kali Linux | Atacante | 192.168.100.6 |
 
 Las 3 máquinas corren en una **NAT Network** de VirtualBox, aisladas de la red doméstica real pero con comunicación entre sí.
 
@@ -34,10 +40,12 @@ Las 3 máquinas corren en una **NAT Network** de VirtualBox, aisladas de la red 
 
 ## Qué incluye este repo
 
-- [`rules/local_rules.xml`](./rules/local_rules.xml) — 3 reglas de detección personalizadas
-- [`config/active-response-ossec.conf`](./config/active-response-ossec.conf) — configuración de respuesta activa (bloqueo automático de IP)
-- [`reporte/`](./reporte) — reporte PDF exportado desde Wazuh
-- Este README, con la explicación completa del proceso
+| | Archivo | Contenido |
+|---|---|---|
+| ![XML](https://img.shields.io/badge/XML-000000?style=flat-square) | [`rules/local_rules.xml`](./rules/local_rules.xml) | 3 reglas de detección personalizadas |
+| ![CONF](https://img.shields.io/badge/CONF-000000?style=flat-square) | [`config/active-response-ossec.conf`](./config/active-response-ossec.conf) | Configuración de respuesta activa (bloqueo automático de IP) |
+| ![PDF](https://img.shields.io/badge/PDF-000000?style=flat-square) | [`reporte/`](./reporte) | Reporte PDF exportado desde Wazuh |
+| ![MD](https://img.shields.io/badge/MD-000000?style=flat-square) | `README.md` | Explicación completa del proceso |
 
 ---
 
