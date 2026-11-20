@@ -1,8 +1,18 @@
-# Laboratorio de Ciberseguridad con Wazuh (SIEM)
+<div align="center">
+
+<img src="./banner.svg" width="100%">
+
+<br><br>
 
 ![Wazuh](https://img.shields.io/badge/WAZUH-SIEM-000000?style=for-the-badge&labelColor=000000&color=FFFFFF)
 ![VirtualBox](https://img.shields.io/badge/VIRTUALBOX-LAB-000000?style=for-the-badge&labelColor=000000&color=FFFFFF)
 ![Status](https://img.shields.io/badge/STATUS-COMPLETADO-000000?style=for-the-badge&labelColor=000000&color=FFFFFF)
+
+</div>
+
+<br>
+
+# Laboratorio de Ciberseguridad con Wazuh (SIEM)
 
 Laboratorio casero de detección y respuesta a incidentes, construido con **Wazuh** sobre 3 máquinas virtuales en VirtualBox. Simula un escenario real de defensa: un servidor monitoreado, un equipo víctima con agente instalado, y un atacante lanzando un ataque de fuerza bruta por SSH — detectado y bloqueado automáticamente.
 
