@@ -51,6 +51,9 @@ Las 3 máquinas corren en una **NAT Network** de VirtualBox, aisladas de la red 
 
 ## 1. Instalación
 
+![All-in-one](https://img.shields.io/badge/MODO-ALL--IN--ONE-000000?style=flat-square)
+![Agente](https://img.shields.io/badge/AGENTE-ACTIVE-000000?style=flat-square)
+
 - Wazuh instalado en modo **all-in-one** (manager + indexer + dashboard en una sola máquina) sobre Ubuntu Server.
 - Agente de Wazuh instalado en Ubuntu Desktop y registrado contra el servidor — verificado como "Active" en el dashboard (`Agents`).
 
@@ -62,20 +65,28 @@ Se crearon 3 reglas propias en `local_rules.xml`, todas basadas en la regla pred
 
 | ID | Nivel | Qué detecta |
 |---|---|---|
-| 100001 | 10 | Login SSH exitoso como usuario **root** |
-| 100002 | 9 | Login SSH exitoso durante el **fin de semana** |
-| 100003 | 8 | Actividad del usuario de servicio **deploy** |
+| `100001` | ![10](https://img.shields.io/badge/-10-000000?style=flat-square) | Login SSH exitoso como usuario **root** |
+| `100002` | ![9](https://img.shields.io/badge/-9-000000?style=flat-square) | Login SSH exitoso durante el **fin de semana** |
+| `100003` | ![8](https://img.shields.io/badge/-8-000000?style=flat-square) | Actividad del usuario de servicio **deploy** |
 
-Puntos clave aprendidos al construirlas:
+<details>
+<summary><b>Puntos clave aprendidos al construirlas</b> (clic para expandir)</summary>
+<br>
 
 - Toda regla personalizada necesita un `id` entre **100000 y 120000**.
 - Para que una regla "hija" se evalúe, hay que anclarla a la regla "padre" con `<if_sid>` (si no, Wazuh nunca llega a evaluarla).
 - Campos estáticos como `dstuser` **no** se pueden filtrar con `<field name="dstuser">`; existe la etiqueta dedicada `<user>` para eso.
 - Se verificaron las 3 reglas con la herramienta **Ruleset Test** del dashboard antes de darlas por buenas (evita errores de decodificación por espacios de más en el log).
 
+</details>
+
 ---
 
 ## 3. Simulación de ataque: fuerza bruta SSH
+
+![Regla](https://img.shields.io/badge/REGLA-5763-000000?style=flat-square)
+![Nivel](https://img.shields.io/badge/NIVEL-10-000000?style=flat-square)
+![MITRE](https://img.shields.io/badge/MITRE%20ATT%26CK-BRUTE%20FORCE-000000?style=flat-square)
 
 Desde Kali, usando **Hydra**, contra la IP real de la víctima:
 
@@ -96,6 +107,10 @@ Resultado: Wazuh detectó el ataque mediante su regla predefinida **5763 — "ss
 
 ## 4. Respuesta activa: bloqueo automático de IP
 
+![Comando](https://img.shields.io/badge/COMANDO-firewall--drop-000000?style=flat-square)
+![Regla](https://img.shields.io/badge/REGLA-651-000000?style=flat-square)
+![Timeout](https://img.shields.io/badge/TIMEOUT-180s-000000?style=flat-square)
+
 Se configuró `firewall-drop`, el script de respuesta activa de Wazuh basado en `iptables`, para que se dispare automáticamente cuando salta la regla 5763.
 
 Configuración añadida en `/var/ossec/etc/ossec.conf` (ver [`config/active-response-ossec.conf`](./config/active-response-ossec.conf)):
@@ -103,12 +118,14 @@ Configuración añadida en `/var/ossec/etc/ossec.conf` (ver [`config/active-resp
 - Bloque `<command>` declarando `firewall-drop` como ejecutable.
 - Bloque `<active-response>` ligándolo a la regla `5763`, con `timeout` de 180 segundos.
 
-Flujo verificado de punta a punta:
+**Flujo verificado de punta a punta:**
 
-1. Hydra ataca por SSH → regla **5763** se dispara.
-2. Wazuh ejecuta `firewall-drop` → la IP del atacante queda bloqueada (`iptables DROP`).
-3. Se genera la alerta de regla **651 — "Host Blocked by firewall-drop Active Response"**, confirmando que la respuesta activa se ejecutó.
-4. Pasados los 180 segundos configurados, el bloqueo se revierte automáticamente (comportamiento esperado de una respuesta activa "stateful" con `timeout` definido, no un error).
+| Paso | Evento |
+|---|---|
+| 1 | Hydra ataca por SSH → regla **5763** se dispara |
+| 2 | Wazuh ejecuta `firewall-drop` → la IP del atacante queda bloqueada (`iptables DROP`) |
+| 3 | Se genera la alerta de regla **651** — *"Host Blocked by firewall-drop Active Response"*, confirmando que la respuesta activa se ejecutó |
+| 4 | Pasados los 180 segundos configurados, el bloqueo se revierte automáticamente (comportamiento esperado de una respuesta activa "stateful" con `timeout` definido, no un error) |
 
 <!--
   PANTALLAZO: alerta de la regla 651 confirmando el bloqueo de IP
@@ -123,7 +140,7 @@ Flujo verificado de punta a punta:
 
 Reporte exportado directamente desde el dashboard de Wazuh con el resumen de alertas, agentes y eventos del laboratorio.
 
-[`reporte/wazuh-reporte.pdf`](./reporte/wazuh-reporte.pdf)
+[![Ver reporte PDF](https://img.shields.io/badge/VER%20REPORTE-PDF-000000?style=for-the-badge&labelColor=000000&color=FFFFFF)](./reporte/wazuh-reporte.pdf)
 
 ---
 
