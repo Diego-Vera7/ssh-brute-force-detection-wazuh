@@ -14,7 +14,7 @@
 
 # Laboratorio de Ciberseguridad con Wazuh (SIEM)
 
-Laboratorio casero de detección y respuesta a incidentes, construido con **Wazuh** sobre 3 máquinas virtuales en VirtualBox. Simula un escenario real de defensa: un servidor monitoreado, un equipo víctima con agente instalado, y un atacante lanzando un ataque de fuerza bruta por SSH — detectado y bloqueado automáticamente.
+Laboratorio de detección y respuesta a incidentes, construido con **Wazuh** sobre 3 máquinas virtuales en VirtualBox. Simula un escenario real de defensa: un servidor monitoreado, un equipo víctima con agente instalado, y un atacante lanzando un ataque de fuerza bruta por SSH — detectado y bloqueado automáticamente.
 
 Basado en la guía *"Wazuh para principiantes"* de Fatima Pérez, con reglas y configuración propias añadidas sobre la base de la guía.
 
@@ -58,7 +58,7 @@ Se crearon 3 reglas propias en `local_rules.xml`, todas basadas en la regla pred
 | 100002 | 9 | Login SSH exitoso durante el **fin de semana** |
 | 100003 | 8 | Actividad del usuario de servicio **deploy** |
 
-Puntos clave aprendidos al construirlas:
+Puntos clave:
 
 - Toda regla personalizada necesita un `id` entre **100000 y 120000**.
 - Para que una regla "hija" se evalúe, hay que anclarla a la regla "padre" con `<if_sid>` (si no, Wazuh nunca llega a evaluarla).
