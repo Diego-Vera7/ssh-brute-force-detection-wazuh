@@ -14,7 +14,7 @@
 
 # Laboratorio de Ciberseguridad con Wazuh (SIEM)
 
-Laboratorio de detección y respuesta a incidentes, construido con **Wazuh** sobre 3 máquinas virtuales en VirtualBox. Simula un escenario real de defensa: un servidor monitoreado, un equipo víctima con agente instalado, y un atacante lanzando un ataque de fuerza bruta por SSH — detectado y bloqueado automáticamente.
+Laboratorio casero de detección y respuesta a incidentes, construido con **Wazuh** sobre 3 máquinas virtuales en VirtualBox. Simula un escenario real de defensa: un servidor monitoreado, un equipo víctima con agente instalado, y un atacante lanzando un ataque de fuerza bruta por SSH — detectado y bloqueado automáticamente.
 
 Basado en la guía *"Wazuh para principiantes"* de Fatima Pérez, con reglas y configuración propias añadidas sobre la base de la guía.
 
@@ -58,7 +58,7 @@ Se crearon 3 reglas propias en `local_rules.xml`, todas basadas en la regla pred
 | 100002 | 9 | Login SSH exitoso durante el **fin de semana** |
 | 100003 | 8 | Actividad del usuario de servicio **deploy** |
 
-Puntos clave:
+Puntos clave aprendidos al construirlas:
 
 - Toda regla personalizada necesita un `id` entre **100000 y 120000**.
 - Para que una regla "hija" se evalúe, hay que anclarla a la regla "padre" con `<if_sid>` (si no, Wazuh nunca llega a evaluarla).
@@ -121,7 +121,11 @@ Reporte exportado directamente desde el dashboard de Wazuh con el resumen de ale
 
 ## Herramientas usadas
 
-VirtualBox · Ubuntu Server 22.04/24.04 · Ubuntu Desktop · Kali Linux · Wazuh 4.14 (manager, indexer, dashboard, agent) · Hydra
+![VirtualBox](https://img.shields.io/badge/VirtualBox-000000?style=for-the-badge&logo=virtualbox&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-000000?style=for-the-badge&logo=ubuntu&logoColor=white)
+![Kali Linux](https://img.shields.io/badge/Kali%20Linux-000000?style=for-the-badge&logo=kalilinux&logoColor=white)
+![Wazuh](https://img.shields.io/badge/Wazuh%204.14-000000?style=for-the-badge&logo=wazuh&logoColor=white)
+![Hydra](https://img.shields.io/badge/Hydra-000000?style=for-the-badge&logo=hydra&logoColor=white)
 
 ---
 
