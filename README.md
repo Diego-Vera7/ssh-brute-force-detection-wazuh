@@ -94,6 +94,8 @@ Desde Kali, usando **Hydra**, contra la IP real de la víctima:
 hydra -l root -P passwords.txt ssh://192.168.100.5 -t 4
 ```
 
+![Ataque ejecutado desde Kali](./screenshots/ataque-hydra.png)
+
 Resultado: Wazuh detectó el ataque mediante su regla predefinida **5763 — "sshd: Multiple failed logins in a small period of time"** (nivel 10), correlacionando los múltiples intentos fallidos desde la misma IP en una ventana de tiempo corta. Confirmado en **Threat Hunting** del dashboard.
 
 ![Detección del ataque](./screenshots/deteccion-5763.png)
