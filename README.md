@@ -174,7 +174,7 @@ Reporte exportado directamente desde el dashboard de Wazuh con el resumen de ale
 <sub><b>Wazuh 4.14</b></sub>
 </td>
 <td align="center" width="140">
-<img src="./assets/hydra-icon.webp" height="56"><br>
+<img src="./assets/hydra-icon.png" height="56"><br>
 <sub><b>Hydra</b></sub>
 </td>
 </tr>
