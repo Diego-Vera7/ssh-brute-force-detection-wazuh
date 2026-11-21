@@ -1,0 +1,39 @@
+<!--
+  Reglas personalizadas - Laboratorio Wazuh
+  Autor: Diego (basado en la guía "Wazuh para principiantes" de Fatima Perez)
+  Archivo original: /var/ossec/etc/rules/local_rules.xml
+-->
+
+<group name="custom_auth,">
+
+  <!-- Regla 1: detecta login SSH exitoso con el usuario root -->
+  <rule id="100001" level="10">
+    <if_sid>5715</if_sid>
+    <match>root</match>
+    <description>Login SSH exitoso como root - requiere verificacion</description>
+    <group>authentication_success,custom_auth,</group>
+  </rule>
+
+  <!-- Regla 2: detecta login SSH exitoso durante el fin de semana -->
+  <rule id="100002" level="9">
+    <if_sid>5715</if_sid>
+    <weekday>weekends</weekday>
+    <description>Login SSH exitoso durante el fin de semana</description>
+    <group>authentication_success,custom_auth,</group>
+  </rule>
+
+</group>
+
+<group name="custom_users,">
+
+  <!-- Regla 3: detecta actividad del usuario de servicio "deploy" -->
+  <!-- Usa <user> en vez de <field name="dstuser"> porque dstuser es un campo
+       estático de Wazuh y no puede referenciarse con <field>. -->
+  <rule id="100003" level="8">
+    <if_sid>5715</if_sid>
+    <user>^deploy$</user>
+    <description>Actividad detectada del usuario deploy</description>
+    <group>custom_users,</group>
+  </rule>
+
+</group>
