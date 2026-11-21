@@ -96,12 +96,7 @@ hydra -l root -P passwords.txt ssh://192.168.100.5 -t 4
 
 Resultado: Wazuh detectó el ataque mediante su regla predefinida **5763 — "sshd: Multiple failed logins in a small period of time"** (nivel 10), correlacionando los múltiples intentos fallidos desde la misma IP en una ventana de tiempo corta. Confirmado en **Threat Hunting** del dashboard.
 
-<!--
-  PANTALLAZO: alerta de la regla 5763 en Threat Hunting mostrando
-  el ataque de fuerza bruta detectado.
-  Reemplaza la línea de abajo por: ![Detección del ataque](./screenshots/nombre-de-tu-imagen.png)
--->
-
+![Detección del ataque](./screenshots/deteccion-5763.png)
 
 ---
 
@@ -127,12 +122,7 @@ Configuración añadida en `/var/ossec/etc/ossec.conf` (ver [`config/active-resp
 | 3 | Se genera la alerta de regla **651** — *"Host Blocked by firewall-drop Active Response"*, confirmando que la respuesta activa se ejecutó |
 | 4 | Pasados los 180 segundos configurados, el bloqueo se revierte automáticamente (comportamiento esperado de una respuesta activa "stateful" con `timeout` definido, no un error) |
 
-<!--
-  PANTALLAZO: alerta de la regla 651 confirmando el bloqueo de IP
-  por la respuesta activa.
-  Reemplaza la línea de abajo por: ![Bloqueo de IP ejecutado](./screenshots/nombre-de-tu-imagen.png)
--->
-
+![Bloqueo de IP ejecutado](./screenshots/bloqueo-651.png)
 
 ---
 
