@@ -140,7 +140,14 @@ Configuración añadida en `/var/ossec/etc/ossec.conf` (ver [`config/active-resp
 
 Reporte exportado directamente desde el dashboard de Wazuh con el resumen de alertas, agentes y eventos del laboratorio.
 
-[![Ver reporte PDF](https://img.shields.io/badge/VER%20REPORTE-PDF-000000?style=for-the-badge&labelColor=000000&color=FFFFFF)](./reporte/wazuh-reporte.pdf)
+<div align="center">
+
+<a href="./reporte/wazuh-reporte.pdf">
+<img src="./assets/pdf-icon.webp" width="90"><br>
+<b>Ver reporte PDF</b>
+</a>
+
+</div>
 
 ---
 
@@ -163,11 +170,11 @@ Reporte exportado directamente desde el dashboard de Wazuh con el resumen de ale
 <sub><b>Kali Linux</b></sub>
 </td>
 <td align="center" width="140">
-<img src="https://cdn.simpleicons.org/wazuh" width="56" height="56"><br>
+<img src="./assets/wazuh-logo.png" height="56"><br>
 <sub><b>Wazuh 4.14</b></sub>
 </td>
 <td align="center" width="140">
-<img src="https://cdn.simpleicons.org/hydra" width="56" height="56"><br>
+<img src="./assets/hydra-logo.png" height="56"><br>
 <sub><b>Hydra</b></sub>
 </td>
 </tr>
