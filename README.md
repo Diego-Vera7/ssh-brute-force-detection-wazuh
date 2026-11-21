@@ -4,17 +4,17 @@
 
 <br><br>
 
+![Ataque](https://img.shields.io/badge/ATAQUE-SSH%20BRUTE%20FORCE-000000?style=for-the-badge&labelColor=000000&color=FFFFFF)
 ![Wazuh](https://img.shields.io/badge/WAZUH-SIEM-000000?style=for-the-badge&labelColor=000000&color=FFFFFF)
-![VirtualBox](https://img.shields.io/badge/VIRTUALBOX-LAB-000000?style=for-the-badge&labelColor=000000&color=FFFFFF)
 ![Status](https://img.shields.io/badge/STATUS-COMPLETADO-000000?style=for-the-badge&labelColor=000000&color=FFFFFF)
 
 </div>
 
 <br>
 
-# Laboratorio de Ciberseguridad con Wazuh (SIEM)
+# Detección de Fuerza Bruta SSH con Wazuh (SIEM)
 
-Laboratorio casero de detección y respuesta a incidentes, construido con **Wazuh** sobre 3 máquinas virtuales en VirtualBox. Simula un escenario real de defensa: un servidor monitoreado, un equipo víctima con agente instalado, y un atacante lanzando un ataque de fuerza bruta por SSH — detectado y bloqueado automáticamente.
+Laboratorio casero de detección y respuesta a incidentes centrado en un **ataque de fuerza bruta por SSH**, construido con **Wazuh** sobre 3 máquinas virtuales en VirtualBox. Simula un escenario real de defensa: un servidor monitoreado, un equipo víctima con agente instalado, y un atacante (Kali + Hydra) intentando entrar por fuerza bruta — detectado y bloqueado automáticamente mediante respuesta activa.
 
 Basado en la guía *"Wazuh para principiantes"* de Fatima Pérez, con reglas y configuración propias añadidas sobre la base de la guía.
 
