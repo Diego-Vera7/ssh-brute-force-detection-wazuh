@@ -122,7 +122,7 @@ Configuración añadida en `/var/ossec/etc/ossec.conf` (ver [`config/active-resp
 | 3 | Se genera la alerta de regla **651** — *"Host Blocked by firewall-drop Active Response"*, confirmando que la respuesta activa se ejecutó |
 | 4 | Pasados los 180 segundos configurados, el bloqueo se revierte automáticamente (comportamiento esperado de una respuesta activa "stateful" con `timeout` definido, no un error) |
 
-![Bloqueo de IP ejecutado](./screenshots/bloqueo-651.png)
+![Bloqueo de IP ejecutado](./screenshots/deteccion-651.png)
 
 ---
 
